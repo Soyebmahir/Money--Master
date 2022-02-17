@@ -10,44 +10,53 @@
     <title>Digital Wallet</title>
 </head>
 <body class="bg-white">
-    <header>
+    <header> 
+                                  <!-- head title --> 
+
         <h2 class="font-bold text-4xl text-center mt-5 mb-5 text-violet-900	">Digital Wallet</h2>
     </header>
     <main>
         <div class=" w-3/4 mx-auto 	bg-white ">
             <div class=" mx-auto grid sm:grid-cols-2 gap-8 w-full ">
+
+                                       <!-- images part -->
+
                 <div class="">
                     <img class="object-cover h-full border shadow-2xl rounded-lg" src="images/photo.jpg" alt="">
                 </div>
-                <div class="bg-emerald-100	 w-full">
+                <div class="bg-emerald-100 w-full">
+
+                                    <!-- Income and Expenses Details  -->
                     
                     <div class=" align-center text-center  mt-5	shadow-2xl rounded-lg">
                         <h2 class="font-semibold text-lg">Income</h2>
                         <label class="inline-block w-24" for="">Income</label>
-                        <input class="border mt-2 " type="text">
+                        <input id="income-amount" class="border mt-2 " type="text">
                         <h2 class="mt-8 font-semibold text-lg">Expenses</h2>
                         <label class="inline-block  w-24" for="">Food</label>
-                        <input  class="border mt-2 " type="text">
+                        <input id="food-amount" class="border mt-2 " type="text">
                         <br>
                         <label class="inline-block  w-24" for="">Rent</label>
-                        <input  class="border mt-2 " type="text">
+                        <input id="rent-amount" class="border mt-2 " type="text">
                         <br>
                         <label class="inline-block w-24" for="">Clothes</label>
-                        <input  class="border mt-2 " type="text">
+                        <input id="clothes-amount" class="border mt-2 " type="text">
                         <br>
-                        <button class="mt-2 font-semibold text-lg border bg-fuchsia-500	 rounded-lg px-4">Calculator</button>
-                        <h1 class="mt-8 ">Total Expenses:$<span>00</span></h1>
-                        <h1 class="mt-2 ">Balance:$<span>00</span></h1>
+                                         <!-- Calculation Start -->
+                                         
+                        <button id="submit-calculation" class="mt-2 font-semibold text-lg border bg-fuchsia-500	 rounded-lg px-4">Calculator</button>
+                        <h1 class="mt-8 ">Total Expenses:$<span id="total-expense">00</span></h1>
+                        <h1 class="mt-2 ">Balance:$<span id="balance">00</span></h1>
                         <div class="mx-auto grid grid-cols-2 gap-4 mt-2 ">
                             <div>
-                                <h1>Save <input   class="border w-10 mt-2 " type="text" name="" id=""> <Span>%</Span></h1>
+                                <h1>Save <input id="percentage"  class="border w-10 mt-2 " type="text" name="" > <Span>%</Span></h1>
                             </div>
                             <div>
-                                <button class="border px-4 mt-2 ">Save</button>
+                                <button id="submit-percentage" class="border px-4 mt-2 ">Save</button>
                             </div>
                         </div>
-                        <h1 class="mt-2 ">Saving Amount:$<span>00</span></h1>
-                        <h1 class="mt-2 pb-8">Remaining Balance:$<span>00</span></h1>
+                        <h1 class="mt-2 ">Saving Amount:$<span id="saving-amount">00</span></h1>
+                        <h1 class="mt-2 pb-8">Remaining Balance:$<span id="remaining-amount">00</span></h1>
 
                     </div>
                 </div>
@@ -55,5 +64,8 @@
             </div>
         </div>
     </main>
+
+
+    <script src="index.js"></script>
 </body>
 </html>
