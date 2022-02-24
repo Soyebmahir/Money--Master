@@ -5,8 +5,6 @@ function getValue(inputId){
     const inputFieldValue =parseFloat(inputFieldText);
     return inputFieldValue;
 }
-
-
 // total Expenses calculation 
 function expenses (foodGetValue,rentGetValue,clothesGetValue){
 
@@ -14,8 +12,6 @@ function expenses (foodGetValue,rentGetValue,clothesGetValue){
     
     return totalExpenses;
 }
-
-
 // substract expenses from Income 
 function balanceAfterExpenses (incomeGetValue,totalExpenses){
     const balance =(incomeGetValue-totalExpenses);
@@ -25,14 +21,11 @@ function balanceAfterExpenses (incomeGetValue,totalExpenses){
 
 // placed the value to innerText field of Balance and Expesnse 
 function totalAmount (amountId,totalAmount){
-
-    
         const amountField = document.getElementById(amountId);
         const visibleBalance= amountField.innerText ;
          amountField.innerText = totalAmount ;
         return visibleBalance; 
 }
-
 
 // saving function 
 function savingAmount (balanceId,percentageId,savingMoneyId,remainingMoneyId){
@@ -58,49 +51,38 @@ function savingAmount (balanceId,percentageId,savingMoneyId,remainingMoneyId){
         totalAmount (savingMoneyId,savingMoney);
         totalAmount(remainingMoneyId,remainingMoney);
         alertMassage.style.display='none';
-
     }
-    
-
-
-
 }
-
-
 // clickable button 
 document.getElementById('submit-calculation').addEventListener('click',()=>{
 
-// income value call from here
-const incomeGetValue=getValue('income-amount')
+                // income value call from here
+                const incomeGetValue=getValue('income-amount')
 
-// Expenses value call from here
-const foodGetValue =getValue ('food-amount');
-const rentGetValue = getValue('rent-amount');
-const clothesGetValue = getValue('clothes-amount');
+                // Expenses value call from here
+                const foodGetValue =getValue ('food-amount');
+                const rentGetValue = getValue('rent-amount');
+                const clothesGetValue = getValue('clothes-amount');
+                const totalExpenses = expenses ( foodGetValue,rentGetValue,clothesGetValue);
 
-const alertMassage = document.getElementById('alert');
+                const alertMassage = document.getElementById('alert');
 
-if(incomeGetValue<0 || foodGetValue < 0 || rentGetValue <0 || clothesGetValue<0 || isNaN(incomeGetValue) || isNaN(foodGetValue) ||isNaN(rentGetValue) || isNaN(clothesGetValue)){
+                if(incomeGetValue<0 || foodGetValue < 0 || rentGetValue <0 || clothesGetValue<0 || isNaN(incomeGetValue) || isNaN(foodGetValue) ||isNaN(rentGetValue) || isNaN(clothesGetValue) || totalExpenses > incomeGetValue){
 
-    alertMassage.style.display='block';
-    // console.log("Input valid number");
-}
-else{
-    
-    const totalExpenses = expenses ( foodGetValue,rentGetValue,clothesGetValue);
-    const balance =balanceAfterExpenses (incomeGetValue,totalExpenses);
-    
-    // called function of "placed the value to innerText field of Balance and Expesnse"
-     totalAmount('balance',balance);
-     totalAmount('total-expense',totalExpenses);
-     alertMassage.style.display='none';
-}
-
- 
-})
-
+                    
+                    alertMassage.style.display='block';
+                    // console.log("Input valid number");
+                }
+                else{
+                    const balance =balanceAfterExpenses (incomeGetValue,totalExpenses);
+                    
+                    // called function of "placed the value to innerText field of Balance and Expesnse"
+                    totalAmount('balance',balance);
+                    totalAmount('total-expense',totalExpenses);
+                    alertMassage.style.display='none';
+                }
+                })
 document.getElementById('submit-percentage').addEventListener('click',()=>{
     
     savingAmount ('balance','percentage','saving-amount','remaining-amount');
-
 })
